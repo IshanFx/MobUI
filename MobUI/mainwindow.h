@@ -19,6 +19,11 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void sendItemFront();
+    void sendItemBack();
+    void rotateItemLeft();
+    void rotateItemRight();
+    void increaceItemScale();
 
 private slots:
     void on_pushButton_13_clicked();
@@ -32,6 +37,12 @@ private slots:
     void on_btnRotateLeft_clicked();
 
     void on_btnRotateRight_clicked();
+
+    void on_btnBringFront_clicked();
+
+    void on_btnBringBack_clicked();
+
+    void on_btnUpScale_clicked();
 
 private:
     Ui::MainWindow *ui;

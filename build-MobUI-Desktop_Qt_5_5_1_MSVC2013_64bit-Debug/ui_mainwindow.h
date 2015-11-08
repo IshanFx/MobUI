@@ -18,13 +18,14 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -32,20 +33,24 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *actionNew;
+    QAction *actionBringFront;
+    QAction *actionBringBack;
+    QAction *actionDelete;
+    QAction *actionRotate_Left;
+    QAction *actionRotate_Right;
     QWidget *centralWidget;
     QGraphicsView *graphicsView;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_3;
-    QPushButton *pushButton_6;
-    QPushButton *pushButton_7;
+    QPushButton *btnArrow;
+    QPushButton *btnShapeRect;
+    QPushButton *btnShapeOval;
+    QPushButton *btnShapeLine;
+    QPushButton *btnShapeText;
     QPushButton *btnRotateLeft;
     QPushButton *btnRotateRight;
-    QListWidget *listWidget;
-    QLabel *label_4;
     QPushButton *btnItemRemove;
-    QPushButton *pushButton_11;
-    QPushButton *pushButton_12;
+    QPushButton *btnBringFront;
+    QPushButton *btnBringBack;
     QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout;
     QLabel *label_2;
@@ -58,10 +63,17 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_3;
     QPushButton *btnBorderColor;
+    QPushButton *btnUpScale;
+    QPushButton *btnDownScale;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout;
     QLineEdit *shapeWidth;
     QLineEdit *shapeHeight;
     QPushButton *pushButton_13;
     QMenuBar *menuBar;
+    QMenu *menuFile;
+    QMenu *menuEdt;
+    QMenu *menuHelp;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -69,54 +81,84 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(844, 752);
+        MainWindow->resize(847, 670);
+        MainWindow->setAutoFillBackground(false);
+        MainWindow->setStyleSheet(QStringLiteral("background:rgb(98, 98, 98)"));
+        actionNew = new QAction(MainWindow);
+        actionNew->setObjectName(QStringLiteral("actionNew"));
+        actionBringFront = new QAction(MainWindow);
+        actionBringFront->setObjectName(QStringLiteral("actionBringFront"));
+        actionBringBack = new QAction(MainWindow);
+        actionBringBack->setObjectName(QStringLiteral("actionBringBack"));
+        actionDelete = new QAction(MainWindow);
+        actionDelete->setObjectName(QStringLiteral("actionDelete"));
+        actionRotate_Left = new QAction(MainWindow);
+        actionRotate_Left->setObjectName(QStringLiteral("actionRotate_Left"));
+        actionRotate_Right = new QAction(MainWindow);
+        actionRotate_Right->setObjectName(QStringLiteral("actionRotate_Right"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         graphicsView = new QGraphicsView(centralWidget);
         graphicsView->setObjectName(QStringLiteral("graphicsView"));
         graphicsView->setEnabled(true);
-        graphicsView->setGeometry(QRect(50, 50, 631, 421));
+        graphicsView->setGeometry(QRect(50, 50, 651, 541));
         graphicsView->setMouseTracking(true);
+        graphicsView->setStyleSheet(QStringLiteral("background:rgb(255, 255, 255)"));
         graphicsView->setFrameShape(QFrame::Box);
         graphicsView->setFrameShadow(QFrame::Plain);
-        pushButton = new QPushButton(centralWidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(11, 81, 29, 31));
-        pushButton->setCursor(QCursor(Qt::ArrowCursor));
-        pushButton->setAutoFillBackground(false);
-        pushButton_2 = new QPushButton(centralWidget);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(11, 130, 29, 31));
-        pushButton_3 = new QPushButton(centralWidget);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(11, 179, 29, 31));
-        pushButton_6 = new QPushButton(centralWidget);
-        pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
-        pushButton_6->setGeometry(QRect(11, 228, 29, 31));
-        pushButton_7 = new QPushButton(centralWidget);
-        pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
-        pushButton_7->setGeometry(QRect(11, 277, 29, 31));
+        btnArrow = new QPushButton(centralWidget);
+        btnArrow->setObjectName(QStringLiteral("btnArrow"));
+        btnArrow->setGeometry(QRect(11, 81, 29, 31));
+        btnArrow->setCursor(QCursor(Qt::ArrowCursor));
+        btnArrow->setAutoFillBackground(false);
+        btnArrow->setStyleSheet(QLatin1String("background:rgb(59, 59, 59);\n"
+"color:white;\n"
+"border:1px solid white;\n"
+"border-radius:5px;"));
+        btnShapeRect = new QPushButton(centralWidget);
+        btnShapeRect->setObjectName(QStringLiteral("btnShapeRect"));
+        btnShapeRect->setGeometry(QRect(11, 130, 29, 31));
+        btnShapeRect->setStyleSheet(QLatin1String("background:rgb(59, 59, 59);\n"
+"color:white;\n"
+"border:1px solid white;\n"
+"border-radius:5px;"));
+        btnShapeOval = new QPushButton(centralWidget);
+        btnShapeOval->setObjectName(QStringLiteral("btnShapeOval"));
+        btnShapeOval->setGeometry(QRect(11, 179, 29, 31));
+        btnShapeOval->setStyleSheet(QLatin1String("background:rgb(59, 59, 59);\n"
+"color:white;\n"
+"border:1px solid white;\n"
+"border-radius:5px;"));
+        btnShapeLine = new QPushButton(centralWidget);
+        btnShapeLine->setObjectName(QStringLiteral("btnShapeLine"));
+        btnShapeLine->setGeometry(QRect(11, 228, 29, 31));
+        btnShapeLine->setStyleSheet(QLatin1String("background:rgb(59, 59, 59);\n"
+"color:white;\n"
+"border:1px solid white;\n"
+"border-radius:5px;"));
+        btnShapeText = new QPushButton(centralWidget);
+        btnShapeText->setObjectName(QStringLiteral("btnShapeText"));
+        btnShapeText->setGeometry(QRect(11, 277, 29, 31));
+        btnShapeText->setStyleSheet(QLatin1String("  background-color: rgba(58,224,205,1);\n"
+"   padding: 13px;\n"
+"   color: rgba(255,255,255,1);\n"
+"   font-weight: bold;\n"
+"cursor: hand;"));
         btnRotateLeft = new QPushButton(centralWidget);
         btnRotateLeft->setObjectName(QStringLiteral("btnRotateLeft"));
         btnRotateLeft->setGeometry(QRect(510, 10, 31, 23));
         btnRotateRight = new QPushButton(centralWidget);
         btnRotateRight->setObjectName(QStringLiteral("btnRotateRight"));
         btnRotateRight->setGeometry(QRect(550, 10, 31, 23));
-        listWidget = new QListWidget(centralWidget);
-        listWidget->setObjectName(QStringLiteral("listWidget"));
-        listWidget->setGeometry(QRect(690, 50, 151, 371));
-        label_4 = new QLabel(centralWidget);
-        label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(700, 30, 61, 16));
         btnItemRemove = new QPushButton(centralWidget);
         btnItemRemove->setObjectName(QStringLiteral("btnItemRemove"));
-        btnItemRemove->setGeometry(QRect(690, 430, 31, 31));
-        pushButton_11 = new QPushButton(centralWidget);
-        pushButton_11->setObjectName(QStringLiteral("pushButton_11"));
-        pushButton_11->setGeometry(QRect(770, 430, 31, 31));
-        pushButton_12 = new QPushButton(centralWidget);
-        pushButton_12->setObjectName(QStringLiteral("pushButton_12"));
-        pushButton_12->setGeometry(QRect(810, 430, 31, 31));
+        btnItemRemove->setGeometry(QRect(700, 10, 31, 31));
+        btnBringFront = new QPushButton(centralWidget);
+        btnBringFront->setObjectName(QStringLiteral("btnBringFront"));
+        btnBringFront->setGeometry(QRect(610, 10, 31, 31));
+        btnBringBack = new QPushButton(centralWidget);
+        btnBringBack->setObjectName(QStringLiteral("btnBringBack"));
+        btnBringBack->setGeometry(QRect(650, 10, 31, 31));
         layoutWidget = new QWidget(centralWidget);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
         layoutWidget->setGeometry(QRect(400, 10, 77, 22));
@@ -127,6 +169,7 @@ public:
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
         label_2 = new QLabel(layoutWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setStyleSheet(QStringLiteral("color:rgb(255, 255, 255)"));
 
         horizontalLayout->addWidget(label_2);
 
@@ -145,6 +188,7 @@ public:
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
         label = new QLabel(layoutWidget1);
         label->setObjectName(QStringLiteral("label"));
+        label->setStyleSheet(QStringLiteral("color:rgb(255, 255, 255)"));
 
         horizontalLayout_2->addWidget(label);
 
@@ -163,6 +207,7 @@ public:
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
         label_3 = new QLabel(layoutWidget2);
         label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setStyleSheet(QStringLiteral("color:rgb(255, 255, 255)"));
 
         horizontalLayout_3->addWidget(label_3);
 
@@ -171,19 +216,45 @@ public:
 
         horizontalLayout_3->addWidget(btnBorderColor);
 
-        shapeWidth = new QLineEdit(centralWidget);
+        btnUpScale = new QPushButton(centralWidget);
+        btnUpScale->setObjectName(QStringLiteral("btnUpScale"));
+        btnUpScale->setGeometry(QRect(730, 270, 31, 31));
+        btnDownScale = new QPushButton(centralWidget);
+        btnDownScale->setObjectName(QStringLiteral("btnDownScale"));
+        btnDownScale->setGeometry(QRect(730, 350, 31, 31));
+        widget = new QWidget(centralWidget);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(710, 100, 135, 77));
+        verticalLayout = new QVBoxLayout(widget);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        shapeWidth = new QLineEdit(widget);
         shapeWidth->setObjectName(QStringLiteral("shapeWidth"));
-        shapeWidth->setGeometry(QRect(50, 490, 113, 20));
-        shapeHeight = new QLineEdit(centralWidget);
+
+        verticalLayout->addWidget(shapeWidth);
+
+        shapeHeight = new QLineEdit(widget);
         shapeHeight->setObjectName(QStringLiteral("shapeHeight"));
-        shapeHeight->setGeometry(QRect(170, 490, 113, 20));
-        pushButton_13 = new QPushButton(centralWidget);
+
+        verticalLayout->addWidget(shapeHeight);
+
+        pushButton_13 = new QPushButton(widget);
         pushButton_13->setObjectName(QStringLiteral("pushButton_13"));
-        pushButton_13->setGeometry(QRect(50, 520, 231, 23));
+
+        verticalLayout->addWidget(pushButton_13);
+
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 844, 21));
+        menuBar->setGeometry(QRect(0, 0, 847, 21));
+        menuFile = new QMenu(menuBar);
+        menuFile->setObjectName(QStringLiteral("menuFile"));
+        menuEdt = new QMenu(menuBar);
+        menuEdt->setObjectName(QStringLiteral("menuEdt"));
+        menuHelp = new QMenu(menuBar);
+        menuHelp->setObjectName(QStringLiteral("menuHelp"));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -191,6 +262,15 @@ public:
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         MainWindow->setStatusBar(statusBar);
+
+        menuBar->addAction(menuFile->menuAction());
+        menuBar->addAction(menuEdt->menuAction());
+        menuBar->addAction(menuHelp->menuAction());
+        menuEdt->addAction(actionBringFront);
+        menuEdt->addAction(actionBringBack);
+        menuEdt->addSeparator();
+        menuEdt->addAction(actionRotate_Left);
+        menuEdt->addAction(actionRotate_Right);
 
         retranslateUi(MainWindow);
 
@@ -200,23 +280,57 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        pushButton->setText(QApplication::translate("MainWindow", "P", 0));
-        pushButton_2->setText(QApplication::translate("MainWindow", "Rex", 0));
-        pushButton_3->setText(QApplication::translate("MainWindow", "oval", 0));
-        pushButton_6->setText(QApplication::translate("MainWindow", "L", 0));
-        pushButton_7->setText(QApplication::translate("MainWindow", "T", 0));
+        actionNew->setText(QApplication::translate("MainWindow", "New", 0));
+#ifndef QT_NO_TOOLTIP
+        actionNew->setToolTip(QApplication::translate("MainWindow", "Create New View", 0));
+#endif // QT_NO_TOOLTIP
+        actionNew->setShortcut(QApplication::translate("MainWindow", "Ctrl+N", 0));
+        actionBringFront->setText(QApplication::translate("MainWindow", "BringFront", 0));
+#ifndef QT_NO_TOOLTIP
+        actionBringFront->setToolTip(QApplication::translate("MainWindow", "Bring item To front", 0));
+#endif // QT_NO_TOOLTIP
+        actionBringFront->setShortcut(QApplication::translate("MainWindow", "Ctrl+Shift+F", 0));
+        actionBringBack->setText(QApplication::translate("MainWindow", "BringBack", 0));
+#ifndef QT_NO_TOOLTIP
+        actionBringBack->setToolTip(QApplication::translate("MainWindow", "Bring Item to back", 0));
+#endif // QT_NO_TOOLTIP
+        actionBringBack->setShortcut(QApplication::translate("MainWindow", "Ctrl+Shift+B", 0));
+        actionDelete->setText(QApplication::translate("MainWindow", "Delete", 0));
+#ifndef QT_NO_TOOLTIP
+        actionDelete->setToolTip(QApplication::translate("MainWindow", "delete Selected item", 0));
+#endif // QT_NO_TOOLTIP
+        actionDelete->setShortcut(QApplication::translate("MainWindow", "Del", 0));
+        actionRotate_Left->setText(QApplication::translate("MainWindow", "Rotate Left", 0));
+#ifndef QT_NO_TOOLTIP
+        actionRotate_Left->setToolTip(QApplication::translate("MainWindow", "rotate Item Left", 0));
+#endif // QT_NO_TOOLTIP
+        actionRotate_Left->setShortcut(QApplication::translate("MainWindow", "Ctrl+Q", 0));
+        actionRotate_Right->setText(QApplication::translate("MainWindow", "Rotate Right", 0));
+#ifndef QT_NO_TOOLTIP
+        actionRotate_Right->setToolTip(QApplication::translate("MainWindow", "Rotate item right", 0));
+#endif // QT_NO_TOOLTIP
+        actionRotate_Right->setShortcut(QApplication::translate("MainWindow", "Ctrl+W", 0));
+        btnArrow->setText(QApplication::translate("MainWindow", "P", 0));
+        btnShapeRect->setText(QApplication::translate("MainWindow", "Rex", 0));
+        btnShapeOval->setText(QApplication::translate("MainWindow", "oval", 0));
+        btnShapeLine->setText(QApplication::translate("MainWindow", "L", 0));
+        btnShapeText->setText(QApplication::translate("MainWindow", "T", 0));
         btnRotateLeft->setText(QApplication::translate("MainWindow", "L", 0));
         btnRotateRight->setText(QApplication::translate("MainWindow", "R", 0));
-        label_4->setText(QApplication::translate("MainWindow", "Item Palate", 0));
         btnItemRemove->setText(QApplication::translate("MainWindow", "R", 0));
-        pushButton_11->setText(QApplication::translate("MainWindow", "Up", 0));
-        pushButton_12->setText(QApplication::translate("MainWindow", "Down", 0));
+        btnBringFront->setText(QApplication::translate("MainWindow", "Up", 0));
+        btnBringBack->setText(QApplication::translate("MainWindow", "Down", 0));
         label_2->setText(QApplication::translate("MainWindow", "Border", 0));
         label->setText(QApplication::translate("MainWindow", "Fill Color", 0));
-        btnFillColor->setText(QApplication::translate("MainWindow", "Colour", 0));
+        btnFillColor->setText(QString());
         label_3->setText(QApplication::translate("MainWindow", "Border Colour", 0));
-        btnBorderColor->setText(QApplication::translate("MainWindow", "Colour", 0));
+        btnBorderColor->setText(QString());
+        btnUpScale->setText(QApplication::translate("MainWindow", "PushButton", 0));
+        btnDownScale->setText(QApplication::translate("MainWindow", "PushButton", 0));
         pushButton_13->setText(QApplication::translate("MainWindow", "Add Item", 0));
+        menuFile->setTitle(QApplication::translate("MainWindow", "File", 0));
+        menuEdt->setTitle(QApplication::translate("MainWindow", "Edt", 0));
+        menuHelp->setTitle(QApplication::translate("MainWindow", "Help", 0));
     } // retranslateUi
 
 };

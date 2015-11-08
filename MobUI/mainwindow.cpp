@@ -10,16 +10,75 @@ MainWindow::MainWindow(QWidget *parent) :
     scene = new QGraphicsScene(this);
     ui->graphicsView->setScene(scene);
 
-    QBrush redBrush(Qt::red);
-    QPen redPen(Qt::red);
-    redPen.setWidth(10);
-
-   // elipe = scene->addEllipse(10,10,100,100,redPen,redBrush);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::sendItemFront()
+{
+    if(scene->selectedItems().isEmpty())
+        return;
+
+    QGraphicsItem *userSelectItem = scene->selectedItems().first();
+    QList<QGraphicsItem *> overlapItems = userSelectItem->collidingItems();
+
+    double zValue = 0;
+    foreach (QGraphicsItem *item, overlapItems) {
+        if (item->zValue() >= zValue)
+                   zValue = item->zValue() + 0.1;
+    }
+    userSelectItem->setZValue(zValue);
+}
+
+void MainWindow::sendItemBack()
+{
+    if(scene->selectedItems().isEmpty())
+        return;
+
+    QGraphicsItem *userSelectItem = scene->selectedItems().first();
+    QList<QGraphicsItem *> overlapItems = userSelectItem->collidingItems();
+
+    double zValue = 0;
+    foreach (QGraphicsItem *item, overlapItems) {
+        if (item->zValue() >= zValue)
+                   zValue = item->zValue() - 0.1;
+    }
+    userSelectItem->setZValue(zValue);
+
+}
+
+void MainWindow::rotateItemLeft()
+{
+    qreal currentRotate = 0;
+    foreach (QGraphicsItem *item, scene->selectedItems()) {
+        currentRotate =  item->rotation();
+        item->setRotation(currentRotate-1);
+    }
+    update();
+}
+
+void MainWindow::rotateItemRight()
+{
+    qreal currentRotate = 0;
+    foreach (QGraphicsItem *item, scene->selectedItems()) {
+        currentRotate =  item->rotation();
+
+        item->setRotation(currentRotate+1);
+
+    }
+    update();
+}
+
+void MainWindow::increaceItemScale()
+{
+     qreal currentScale = 0;
+    foreach (QGraphicsItem *item, scene->selectedItems()) {
+       currentScale =  item->scale();
+       item->setScale(currentScale+0.1);
+    }
 }
 
 void MainWindow::on_pushButton_13_clicked()
@@ -59,7 +118,7 @@ void MainWindow::on_btnBorderColor_clicked()
     col =  dialog->getColor();
     QVariant variant= col;
     QString colcode = variant.toString();
-    ui->btnFillColor->setStyleSheet("QPushButton { background-color :"+colcode+" ; color : blue; }");
+    ui->btnBorderColor->setStyleSheet("QPushButton { background-color :"+colcode+" ; color : white; }");
 }
 
 void MainWindow::on_btnItemRemove_clicked()
@@ -71,16 +130,25 @@ void MainWindow::on_btnItemRemove_clicked()
 
 void MainWindow::on_btnRotateLeft_clicked()
 {
-    foreach (QGraphicsItem *item, scene->selectedItems()) {
-        item->setRotation(1);
-    }
-    update();
+    rotateItemLeft();
 }
 
 void MainWindow::on_btnRotateRight_clicked()
 {
-    foreach (QGraphicsItem *item, scene->selectedItems()) {
-        item->setRotation(-1);
-    }
-    update();
+   rotateItemRight();
+}
+
+void MainWindow::on_btnBringFront_clicked()
+{
+   sendItemFront();
+}
+
+void MainWindow::on_btnBringBack_clicked()
+{
+    sendItemBack();
+}
+
+void MainWindow::on_btnUpScale_clicked()
+{
+    increaceItemScale();
 }
