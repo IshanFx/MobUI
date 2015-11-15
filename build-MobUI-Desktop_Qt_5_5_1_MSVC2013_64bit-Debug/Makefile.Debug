@@ -46,19 +46,29 @@ OBJECTS_DIR   = debug
 SOURCES       = ..\MobUI\main.cpp \
 		..\MobUI\mainwindow.cpp \
 		..\MobUI\circle.cpp \
-		..\MobUI\rectangle.cpp debug\moc_mainwindow.cpp
+		..\MobUI\rectangle.cpp \
+		..\MobUI\mobuiscene.cpp \
+		..\MobUI\shape.cpp debug\moc_mainwindow.cpp \
+		debug\moc_mobuiscene.cpp
 OBJECTS       = debug\main.obj \
 		debug\mainwindow.obj \
 		debug\circle.obj \
 		debug\rectangle.obj \
-		debug\moc_mainwindow.obj
+		debug\mobuiscene.obj \
+		debug\shape.obj \
+		debug\moc_mainwindow.obj \
+		debug\moc_mobuiscene.obj
 
 DIST          =  ..\MobUI\mainwindow.h \
 		..\MobUI\circle.h \
-		..\MobUI\rectangle.h ..\MobUI\main.cpp \
+		..\MobUI\rectangle.h \
+		..\MobUI\mobuiscene.h \
+		..\MobUI\shape.h ..\MobUI\main.cpp \
 		..\MobUI\mainwindow.cpp \
 		..\MobUI\circle.cpp \
-		..\MobUI\rectangle.cpp
+		..\MobUI\rectangle.cpp \
+		..\MobUI\mobuiscene.cpp \
+		..\MobUI\shape.cpp
 QMAKE_TARGET  = MobUI
 DESTDIR        = debug\ #avoid trailing-slash linebreak
 TARGET         = MobUI.exe
@@ -147,7 +157,7 @@ dist:
 	$(ZIP) MobUI.zip $(SOURCES) $(DIST) ..\MobUI\MobUI.pro ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\spec_pre.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\common\msvc-desktop.conf ..\..\..\QT\5.5\msvc2013_64\mkspecs\qconfig.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_3dcollision.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_3dcollision_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_3dcore.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_3dcore_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_3dinput.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_3dinput_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_3dlogic.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_3dlogic_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_3dquick.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_3dquick_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_3dquickrenderer.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_3dquickrenderer_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_3drenderer.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_3drenderer_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_axbase.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_axbase_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_axcontainer.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_axserver.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_axserver_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_bluetooth.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_clucene_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_core.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_core_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_dbus.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_dbus_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_declarative.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_declarative_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_designer.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_designer_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_enginio.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_enginio_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_gui.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_help.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_help_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_location.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_location_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_multimedia.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_network.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_network_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_nfc.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_nfc_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_opengl.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_openglextensions.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_platformsupport_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_positioning.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_positioning_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_qml.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_quick.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_script.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_script_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_scripttools.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_scripttools_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_sensors.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_sensors_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_serialport.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_serialport_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_sql.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_svg.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_testlib.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_uiplugin.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_uitools.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_uitools_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_webchannel.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_webengine.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_webengine_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_webenginecore.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_webenginecore_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_webenginewidgets.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_webenginewidgets_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_webkit.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_webkit_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_webkitwidgets.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_webkitwidgets_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_websockets.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_websockets_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_webview_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_widgets.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_winextras.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_winextras_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_xml.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\qt_functions.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\qt_config.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\win32\qt_config.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\win32-msvc2013\qmake.conf ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\spec_post.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\exclusive_builds.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\default_pre.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\win32\default_pre.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\resolve_config.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\exclusive_builds_post.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\default_post.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\build_pass.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\win32\rtti.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\c++11.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\precompile_header.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\warn_on.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\qt.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\resources.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\moc.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\win32\opengl.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\uic.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\win32\windows.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\testcase_targets.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\exceptions.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\yacc.prf ..\..\..\QT\5.5\msvc2013_64\mkspecs\features\lex.prf ..\MobUI\MobUI.pro E:/QT/5.5/msvc2013_64/lib/qtmaind.prl E:/QT/5.5/msvc2013_64/lib/Qt5Widgetsd.prl E:/QT/5.5/msvc2013_64/lib/Qt5Guid.prl E:/QT/5.5/msvc2013_64/lib/Qt5Cored.prl  NO_PCH_SOURCES RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES FORMS YACCSOURCES YACCSOURCES LEXSOURCES 
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\main.obj debug\mainwindow.obj debug\circle.obj debug\rectangle.obj debug\moc_mainwindow.obj
+	-$(DEL_FILE) debug\main.obj debug\mainwindow.obj debug\circle.obj debug\rectangle.obj debug\mobuiscene.obj debug\shape.obj debug\moc_mainwindow.obj debug\moc_mobuiscene.obj
 	-$(DEL_FILE) debug\MobUI.exp debug\MobUI.ilk debug\MobUI.idb
 
 distclean: clean 
@@ -165,9 +175,9 @@ compiler_no_pch_compiler_make_all:
 compiler_no_pch_compiler_clean:
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: debug\moc_mainwindow.cpp
+compiler_moc_header_make_all: debug\moc_mainwindow.cpp debug\moc_mobuiscene.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) debug\moc_mainwindow.cpp
+	-$(DEL_FILE) debug\moc_mainwindow.cpp debug\moc_mobuiscene.cpp
 debug\moc_mainwindow.cpp: ..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\QMainWindow \
 		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\qmainwindow.h \
 		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\qwidget.h \
@@ -489,12 +499,127 @@ debug\moc_mainwindow.cpp: ..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\QMainWin
 		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qdesktopservices.h \
 		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qvalidator.h \
 		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qtguiversion.h \
-		..\MobUI\rectangle.h \
+		..\MobUI\mobuiscene.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\QGraphicsSceneMouseEvent \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\qgraphicssceneevent.h \
+		..\MobUI\circle.h \
 		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\QGraphicsItem \
 		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\qgraphicsitem.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\QGraphicsEllipseItem \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\QBrush \
 		..\..\..\QT\5.5\msvc2013_64\include\QtGui\QPainter \
+		..\MobUI\shape.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\QColor \
 		..\MobUI\mainwindow.h
 	E:\QT\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IE:/QT/5.5/msvc2013_64/mkspecs/win32-msvc2013 -IE:/QTProgramme/MobUI/MobUI -IE:/QT/5.5/msvc2013_64/include -IE:/QT/5.5/msvc2013_64/include/QtWidgets -IE:/QT/5.5/msvc2013_64/include/QtGui -IE:/QT/5.5/msvc2013_64/include/QtANGLE -IE:/QT/5.5/msvc2013_64/include/QtCore -I. ..\MobUI\mainwindow.h -o debug\moc_mainwindow.cpp
+
+debug\moc_mobuiscene.cpp: ..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\QGraphicsScene \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\qgraphicsscene.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qobject.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qobjectdefs.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qnamespace.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qglobal.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qconfig.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qfeatures.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qsystemdetection.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qprocessordetection.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qcompilerdetection.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qtypeinfo.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qtypetraits.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qsysinfo.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qlogging.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qflags.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qbasicatomic.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_bootstrap.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qgenericatomic.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_cxx11.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_gcc.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_msvc.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_armv7.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_armv6.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_armv5.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_ia64.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_mips.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_x86.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_unix.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qglobalstatic.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qmutex.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qnumeric.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qstring.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qchar.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qbytearray.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qrefcount.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qarraydata.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qstringbuilder.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qlist.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qalgorithms.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qiterator.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qbytearraylist.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qstringlist.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qregexp.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qstringmatcher.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qcoreevent.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qscopedpointer.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qmetatype.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qvarlengtharray.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qcontainerfwd.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qisenum.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qobject_impl.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qpoint.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qrect.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qmargins.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qsize.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qbrush.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qpair.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qvector.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qcolor.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qrgb.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qmatrix.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qpolygon.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qregion.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qwindowdefs.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qwindowdefs_win.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qdatastream.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qiodevice.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qline.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qtransform.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qpainterpath.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qimage.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qpaintdevice.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qpixelformat.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qpixmap.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qsharedpointer.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qshareddata.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qhash.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qsharedpointer_impl.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qfont.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qpen.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\QObject \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\QGraphicsSceneMouseEvent \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\qgraphicssceneevent.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qset.h \
+		..\MobUI\circle.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\QGraphicsItem \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\qgraphicsitem.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qvariant.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qmap.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qdebug.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qtextstream.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qlocale.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qcontiguouscache.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\QGraphicsEllipseItem \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\QBrush \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\QPainter \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qpainter.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qtextoption.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qfontinfo.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qfontmetrics.h \
+		..\MobUI\shape.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\QColor \
+		..\MobUI\mobuiscene.h
+	E:\QT\5.5\msvc2013_64\bin\moc.exe $(DEFINES) -D_MSC_VER=1800 -D_WIN32 -D_WIN64 -IE:/QT/5.5/msvc2013_64/mkspecs/win32-msvc2013 -IE:/QTProgramme/MobUI/MobUI -IE:/QT/5.5/msvc2013_64/include -IE:/QT/5.5/msvc2013_64/include/QtWidgets -IE:/QT/5.5/msvc2013_64/include/QtGui -IE:/QT/5.5/msvc2013_64/include/QtANGLE -IE:/QT/5.5/msvc2013_64/include/QtCore -I. ..\MobUI\mobuiscene.h -o debug\moc_mobuiscene.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -838,10 +963,17 @@ debug\main.obj: ..\MobUI\main.cpp ../MobUI/mainwindow.h \
 		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qdesktopservices.h \
 		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qvalidator.h \
 		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qtguiversion.h \
-		../MobUI/rectangle.h \
+		../MobUI/mobuiscene.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\QGraphicsSceneMouseEvent \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\qgraphicssceneevent.h \
+		../MobUI/circle.h \
 		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\QGraphicsItem \
 		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\qgraphicsitem.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\QGraphicsEllipseItem \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\QBrush \
 		..\..\..\QT\5.5\msvc2013_64\include\QtGui\QPainter \
+		../MobUI/shape.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\QColor \
 		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\QApplication \
 		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\qapplication.h \
 		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\qdesktopwidget.h
@@ -1168,11 +1300,21 @@ debug\mainwindow.obj: ..\MobUI\mainwindow.cpp ../MobUI/mainwindow.h \
 		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qdesktopservices.h \
 		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qvalidator.h \
 		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qtguiversion.h \
-		../MobUI/rectangle.h \
+		../MobUI/mobuiscene.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\QGraphicsSceneMouseEvent \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\qgraphicssceneevent.h \
+		../MobUI/circle.h \
 		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\QGraphicsItem \
 		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\qgraphicsitem.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\QGraphicsEllipseItem \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\QBrush \
 		..\..\..\QT\5.5\msvc2013_64\include\QtGui\QPainter \
-		ui_mainwindow.h
+		../MobUI/shape.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\QColor \
+		ui_mainwindow.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\QColorDialog \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\qcolordialog.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\qdialog.h
 
 debug\circle.obj: ..\MobUI\circle.cpp ../MobUI/circle.h \
 		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\QGraphicsItem \
@@ -1261,7 +1403,19 @@ debug\circle.obj: ..\MobUI\circle.cpp ../MobUI/circle.h \
 		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qsharedpointer_impl.h \
 		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qimage.h \
 		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qtransform.h \
-		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qpixelformat.h
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qpixelformat.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\QGraphicsEllipseItem \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\QBrush \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qbrush.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\QPainter \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qpainter.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qtextoption.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qpen.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qfontinfo.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qfont.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qfontmetrics.h \
+		../MobUI/shape.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\QColor
 
 debug\rectangle.obj: ..\MobUI\rectangle.cpp ../MobUI/rectangle.h \
 		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\QGraphicsItem \
@@ -1358,9 +1512,167 @@ debug\rectangle.obj: ..\MobUI\rectangle.cpp ../MobUI/rectangle.h \
 		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qbrush.h \
 		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qfontinfo.h \
 		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qfont.h \
-		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qfontmetrics.h
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qfontmetrics.h \
+		../MobUI/shape.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\QColor
+
+debug\mobuiscene.obj: ..\MobUI\mobuiscene.cpp ../MobUI/mobuiscene.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\QGraphicsScene \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\qgraphicsscene.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qobject.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qobjectdefs.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qnamespace.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qglobal.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qconfig.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qfeatures.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qsystemdetection.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qprocessordetection.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qcompilerdetection.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qtypeinfo.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qtypetraits.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qsysinfo.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qlogging.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qflags.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qbasicatomic.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_bootstrap.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qgenericatomic.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_cxx11.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_gcc.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_msvc.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_armv7.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_armv6.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_armv5.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_ia64.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_mips.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_x86.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_unix.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qglobalstatic.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qmutex.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qnumeric.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qobjectdefs_impl.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qstring.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qchar.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qbytearray.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qrefcount.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qarraydata.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qstringbuilder.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qlist.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qalgorithms.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qiterator.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qbytearraylist.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qstringlist.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qregexp.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qstringmatcher.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qcoreevent.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qscopedpointer.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qmetatype.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qvarlengtharray.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qcontainerfwd.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qisenum.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qobject_impl.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qpoint.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qrect.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qmargins.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qsize.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qbrush.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qpair.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qvector.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qcolor.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qrgb.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qmatrix.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qpolygon.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qregion.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qwindowdefs.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qwindowdefs_win.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qdatastream.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qiodevice.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qline.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qtransform.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qpainterpath.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qimage.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qpaintdevice.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qpixelformat.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qpixmap.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qsharedpointer.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qshareddata.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qhash.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qsharedpointer_impl.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qfont.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qpen.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\QObject \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\QGraphicsSceneMouseEvent \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\qgraphicssceneevent.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qset.h \
+		../MobUI/circle.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\QGraphicsItem \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\qgraphicsitem.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qvariant.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qmap.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qdebug.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qtextstream.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qlocale.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qcontiguouscache.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtWidgets\QGraphicsEllipseItem \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\QBrush \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\QPainter \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qpainter.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qtextoption.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qfontinfo.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qfontmetrics.h \
+		../MobUI/shape.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\QColor
+
+debug\shape.obj: ..\MobUI\shape.cpp ../MobUI/shape.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\QColor \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qcolor.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtGui\qrgb.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qglobal.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qconfig.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qfeatures.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qsystemdetection.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qprocessordetection.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qcompilerdetection.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qtypeinfo.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qtypetraits.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qsysinfo.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qlogging.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qflags.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qbasicatomic.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_bootstrap.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qgenericatomic.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_cxx11.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_gcc.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_msvc.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_armv7.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_armv6.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_armv5.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_ia64.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_mips.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_x86.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qatomic_unix.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qglobalstatic.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qmutex.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qnumeric.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qnamespace.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qstringlist.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qlist.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qalgorithms.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qiterator.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qrefcount.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qarraydata.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qbytearraylist.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qbytearray.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qstring.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qchar.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qstringbuilder.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qregexp.h \
+		..\..\..\QT\5.5\msvc2013_64\include\QtCore\qstringmatcher.h
 
 debug\moc_mainwindow.obj: debug\moc_mainwindow.cpp 
+
+debug\moc_mobuiscene.obj: debug\moc_mobuiscene.cpp 
 
 ####### Install
 

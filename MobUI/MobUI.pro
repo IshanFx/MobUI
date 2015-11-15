@@ -15,10 +15,16 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     circle.cpp \
-    rectangle.cpp
+    rectangle.cpp \
+    mobuiscene.cpp \
+    shape.cpp \
+    mobiuitextitem.cpp
 
 HEADERS  += mainwindow.h \
     circle.h \
-    rectangle.h
+    rectangle.h \
+    mobuiscene.h \
+    shape.h \
+    mobiuitextitem.h
 
 FORMS    += mainwindow.ui

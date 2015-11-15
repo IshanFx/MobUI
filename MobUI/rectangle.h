@@ -3,8 +3,8 @@
 #include <QGraphicsItem>
 #include <QPainter>
 #include <QGraphicsItem>
-
-class RectangleShape:public QGraphicsItem
+#include "shape.h"
+class RectangleShape:public QGraphicsItem,public Shape
 {
 public:
     RectangleShape();

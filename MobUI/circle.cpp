@@ -3,19 +3,21 @@
 Circle::Circle()
 {
     setFlag(ItemIsMovable);
+    setFlag(ItemIsSelectable);
 }
 
 QRectF Circle::boundingRect() const
 {
 
-      return QRectF(20,20,100,100);
+      return QRectF(start_position.x(),start_position.y(),end_position.x()-start_position.x(),end_position.y()-start_position.y());
+
 }
 
 void Circle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     QRectF rec = boundingRect();
-    QBrush brush(Qt::red);
+    QBrush brush(getFillColor());
     painter->setBrush(brush);
-    painter->drawEllipse(100,100,100,100);
+    painter->drawEllipse(start_position.x(),start_position.y(),end_position.x()-start_position.x(),end_position.y()-start_position.y());
 }
 

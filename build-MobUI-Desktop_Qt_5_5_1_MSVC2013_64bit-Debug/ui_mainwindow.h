@@ -65,7 +65,7 @@ public:
     QPushButton *btnBorderColor;
     QPushButton *btnUpScale;
     QPushButton *btnDownScale;
-    QWidget *widget;
+    QWidget *layoutWidget3;
     QVBoxLayout *verticalLayout;
     QLineEdit *shapeWidth;
     QLineEdit *shapeHeight;
@@ -83,7 +83,7 @@ public:
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
         MainWindow->resize(847, 670);
         MainWindow->setAutoFillBackground(false);
-        MainWindow->setStyleSheet(QStringLiteral("background:rgb(98, 98, 98)"));
+        MainWindow->setStyleSheet(QStringLiteral("background:rgb(193, 193, 193)"));
         actionNew = new QAction(MainWindow);
         actionNew->setObjectName(QStringLiteral("actionNew"));
         actionBringFront = new QAction(MainWindow);
@@ -222,25 +222,25 @@ public:
         btnDownScale = new QPushButton(centralWidget);
         btnDownScale->setObjectName(QStringLiteral("btnDownScale"));
         btnDownScale->setGeometry(QRect(730, 350, 31, 31));
-        widget = new QWidget(centralWidget);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(710, 100, 135, 77));
-        verticalLayout = new QVBoxLayout(widget);
+        layoutWidget3 = new QWidget(centralWidget);
+        layoutWidget3->setObjectName(QStringLiteral("layoutWidget3"));
+        layoutWidget3->setGeometry(QRect(710, 100, 135, 77));
+        verticalLayout = new QVBoxLayout(layoutWidget3);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        shapeWidth = new QLineEdit(widget);
+        shapeWidth = new QLineEdit(layoutWidget3);
         shapeWidth->setObjectName(QStringLiteral("shapeWidth"));
 
         verticalLayout->addWidget(shapeWidth);
 
-        shapeHeight = new QLineEdit(widget);
+        shapeHeight = new QLineEdit(layoutWidget3);
         shapeHeight->setObjectName(QStringLiteral("shapeHeight"));
 
         verticalLayout->addWidget(shapeHeight);
 
-        pushButton_13 = new QPushButton(widget);
+        pushButton_13 = new QPushButton(layoutWidget3);
         pushButton_13->setObjectName(QStringLiteral("pushButton_13"));
 
         verticalLayout->addWidget(pushButton_13);
@@ -279,7 +279,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MobUI", 0));
         actionNew->setText(QApplication::translate("MainWindow", "New", 0));
 #ifndef QT_NO_TOOLTIP
         actionNew->setToolTip(QApplication::translate("MainWindow", "Create New View", 0));

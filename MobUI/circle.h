@@ -4,7 +4,8 @@
 #include <QGraphicsEllipseItem>
 #include <QBrush>
 #include <QPainter>
-class Circle:public QGraphicsEllipseItem
+#include "shape.h"
+class Circle:public Shape,public QGraphicsEllipseItem
 {
 public:
     Circle();
@@ -13,6 +14,7 @@ public:
     // QGraphicsItem interface
 public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+
 };
 
 #endif // CIRCLE_H

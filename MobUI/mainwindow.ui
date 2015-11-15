@@ -11,13 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>MobUI</string>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">background:rgb(98, 98, 98)</string>
+   <string notr="true">background:rgb(193, 193, 193)</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QGraphicsView" name="graphicsView">
@@ -321,7 +321,7 @@ cursor: hand;</string>
      <string>PushButton</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>710</x>
@@ -338,7 +338,7 @@ cursor: hand;</string>
       <widget class="QLineEdit" name="shapeHeight"/>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_13">
+      <widget class="QPushButton" name="BtnAddItem">
        <property name="text">
         <string>Add Item</string>
        </property>
@@ -360,6 +360,7 @@ cursor: hand;</string>
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="actionNew"/>
    </widget>
    <widget class="QMenu" name="menuEdt">
     <property name="title">

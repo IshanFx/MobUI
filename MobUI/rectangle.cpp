@@ -4,8 +4,8 @@ RectangleShape::RectangleShape()
 {
 
     press = false;
-    height = 0;
-    width = 0;
+    height = 12;
+    width = 12;
     setFlag(ItemIsMovable);
     setFlag(ItemIsSelectable);
 }
@@ -13,20 +13,15 @@ RectangleShape::RectangleShape()
 QRectF RectangleShape::boundingRect() const
 {
 
-    return QRectF(0,0,height,width);
+    return QRectF(start_position.x(),start_position.y(),end_position.x()-start_position.x(),end_position.y()-start_position.y());
 }
 
 void RectangleShape::paint(QPainter *paint,const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     QRectF rec = boundingRect();
-    QBrush brush(fillcolor);
+    QBrush brush(getFillColor());
 
-    if(press){
-        brush.setColor(Qt::red);
-    }
-    else{
-        brush.setColor(fillcolor);
-    }
+
     paint->fillRect(rec,brush);
     paint->drawRect(rec);
 }
